@@ -1,0 +1,131 @@
+@import '../../style/variables.scss';
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid $color-light-gray;
+
+  .burgerMenu {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: $color-dark-gray;
+
+    &:hover {
+      color: $color-red;
+    }
+  }
+
+  a {
+    text-decoration: none; 
+    color: $color-dark-gray; 
+
+    &:hover {
+      color: $color-red; 
+    }
+  }
+}
+
+
+.logoText {
+  font-family: 'Righteous';
+  color: $color-red;
+  font-size: 28px;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  width: 25px;
+  height: auto;
+  margin-right: 0.5rem;
+}
+
+
+.menu {
+  display: flex;
+  gap: 1rem;
+  padding-left: 1rem;
+  margin: 0 auto;
+
+  li {
+    list-style: none;
+    font-family: 'Roboto Flex', sans-serif;
+    color: $color-dark-gray;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    padding: 0 0.5rem;
+
+    &:hover {
+      color: $color-red;
+    }
+    &:first-child::before {
+      content: '|';
+      color: $color-dark-gray;
+      margin-right: 0.5rem;
+    }
+
+    &:not(:first-child)::before {
+      content: '|';
+      color: $color-dark-gray;
+      margin-right: 0.5rem;
+    }
+    &:last-child::after {
+      content: '|';
+      color: $color-dark-gray;
+      margin-left: 0.5rem;
+    }
+  }
+
+  
+  @media (max-width: 768px) {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid $color-light-gray;
+
+   
+    &.active {
+      display: flex;
+    }
+  }
+}
+
+
+.mobileMenuImage {
+  display: none;
+  width: 22px;
+  height: auto;
+  position: absolute;
+  right: 0.5rem;
+
+  @media (max-width: 768px) {
+    display: block; 
+  }
+}
+
+
+@media (max-width: 768px) {
+  .burgerMenu {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .logoImage {
+    width: 22px; 
+    height: auto;
+  }
+}
